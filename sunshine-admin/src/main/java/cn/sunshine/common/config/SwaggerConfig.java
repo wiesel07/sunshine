@@ -47,5 +47,17 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
     }
+    
+    @Bean
+    public Docket creatUpmsRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .groupName("权限管理模块")
+                .enable(true)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.sunshine.upms"))
+                .paths(PathSelectors.any())
+                .build();
+    }
 }
 

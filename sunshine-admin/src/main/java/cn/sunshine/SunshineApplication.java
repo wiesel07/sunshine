@@ -3,6 +3,7 @@ package cn.sunshine;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @SpringBootApplication
 @Slf4j
 @ComponentScan(value = { "cn.sunshine" })
+@EnableAspectJAutoProxy(exposeProxy = true)
 public class SunshineApplication {
 
 	public static void main(String[] args) {

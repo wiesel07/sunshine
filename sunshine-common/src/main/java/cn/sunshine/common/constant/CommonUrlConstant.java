@@ -14,9 +14,9 @@ public interface CommonUrlConstant {
 
 	public final static String UPDATE = "/update";
 
-	public final static String DELETE = "/delete";
+	public final static String REMOVE = "/remove";
 
-	public final static String BATCH_DELETE = "/batchdelete";
+	public final static String BATCH_REMOVE = "/batchRemove";
 
 	public final static String INDEX = "/index";
 
