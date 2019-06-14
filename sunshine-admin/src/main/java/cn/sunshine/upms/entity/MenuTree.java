@@ -1,36 +1,31 @@
-package cn.sunshine.upms.entity.req;
+package cn.sunshine.upms.entity;
 
+import cn.sunshine.common.base.entity.TreeNode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 菜单请求数据模型
+ * 菜单树实体对象
  * </p>
  *
  * @author wuj
- * @since 2019年6月13日
+ * @since 2019年6月14日
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-@ApiModel(value = "菜单请求对象")
-public class SysMenuReq {
+@EqualsAndHashCode(callSuper = true)
+@ApiModel(value = "菜单树响应对象")
+public class MenuTree extends TreeNode {
 
-	@ApiModelProperty(value = "菜单ID")
-	private Long menuId;
+	private static final long serialVersionUID = 1L;
 
-	@ApiModelProperty(value = "菜单编码")
-	private String menuCode;
+	@ApiModelProperty(value = "父菜单编码")
+	private String menuPcode;
 
-	@ApiModelProperty(value = "菜单名称")
-	private String menuName;
-
-	@ApiModelProperty(value = "父菜单ID")
-	private Long menuPid;
+	@ApiModelProperty(value = "父菜单名称")
+	private String menuPname;
 
 	@ApiModelProperty(value = "菜单地址")
 	private String menuUrl;
@@ -50,3 +45,6 @@ public class SysMenuReq {
 	@ApiModelProperty(value = "备注")
 	private String remark;
 }
+
+
+

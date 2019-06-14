@@ -29,8 +29,10 @@ public interface CommonUrlConstant {
 
 	public final static String TOGGLESTATUS = "/togglestatus";
 
-	public final static String TREELIST = "/treeList";
+	public final static String TREE = "/tree";
 
+	public final static String ROLE_TREE = "roleTree";
+	
 	public final static String SELECCT = "/select";
 
 	

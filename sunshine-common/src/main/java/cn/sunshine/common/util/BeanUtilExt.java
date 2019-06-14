@@ -11,7 +11,7 @@ import cn.hutool.core.bean.BeanUtil;
  * @since 2019年6月13日
  */
 
-public class BeanUtilsExt extends BeanUtil{
+public class BeanUtilExt extends BeanUtil{
 
 }
 

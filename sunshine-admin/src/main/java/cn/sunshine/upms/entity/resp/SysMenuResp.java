@@ -1,4 +1,4 @@
-package cn.sunshine.upms.entity.req;
+package cn.sunshine.upms.entity.resp;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -8,17 +8,17 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 菜单请求数据模型
+ * 菜单请求响应对象
  * </p>
  *
  * @author wuj
- * @since 2019年6月13日
+ * @since 2019年6月14日
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value = "菜单请求对象")
-public class SysMenuReq {
+@ApiModel(value = "菜单请求响应对象")
+public class SysMenuResp {
 
 	@ApiModelProperty(value = "菜单ID")
 	private Long menuId;
@@ -50,3 +50,6 @@ public class SysMenuReq {
 	@ApiModelProperty(value = "备注")
 	private String remark;
 }
+
+
+
