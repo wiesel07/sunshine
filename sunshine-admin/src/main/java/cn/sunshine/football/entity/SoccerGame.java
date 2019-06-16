@@ -1,6 +1,5 @@
-package cn.sunshine.soccer.entity;
+package cn.sunshine.football.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -23,8 +22,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("soccer_game")
-@ApiModel(value = "Game对象", description = "足球比赛")
+@ApiModel(value = "SoccerGame对象", description = "足球比赛")
 public class SoccerGame implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -49,6 +47,10 @@ public class SoccerGame implements Serializable {
 	@TableId(value = "MATCH_ID", type = IdType.ID_WORKER)
 	private Long matchId;
 
+	@ApiModelProperty(value = "赛事名")
+	@TableField("MATCH_NAME")
+	private String matchName;
+
 	@ApiModelProperty(value = "比赛时间")
 	@TableField("MATCH_DATE")
 	private LocalDateTime matchDate;
@@ -62,8 +64,16 @@ public class SoccerGame implements Serializable {
 	private String homeTeam;
 
 	@ApiModelProperty(value = "客队名称")
-	@TableField("AWAY_TEAM")
-	private String awayTeam;
+	@TableField("GUEST_TEAM")
+	private String guestTeam;
+
+	@ApiModelProperty(value = "主队排名")
+	@TableField("HOME_RANK")
+	private Integer homeRank;
+
+	@ApiModelProperty(value = "客队排名")
+	@TableField("GUEST_RANK")
+	private Integer guestRank;
 
 	@ApiModelProperty(value = "全场比分")
 	@TableField("FINAL_SCORE")
@@ -73,17 +83,9 @@ public class SoccerGame implements Serializable {
 	@TableField("HALF_SCORE")
 	private String halfScore;
 
-	@ApiModelProperty(value = "让球")
-	@TableField("HANDICAP")
-	private String handicap;
-
 	@ApiModelProperty(value = "星期")
 	@TableField("WEEKDAY")
 	private String weekday;
-
-	@ApiModelProperty(value = "赛事名")
-	@TableField("MATCH_NAME")
-	private String matchName;
 
 	@ApiModelProperty(value = "状态")
 	@TableField("STATUS")
@@ -99,23 +101,25 @@ public class SoccerGame implements Serializable {
 
 	public static final String MATCH_ID = "MATCH_ID";
 
+	public static final String MATCH_NAME = "MATCH_NAME";
+
 	public static final String MATCH_DATE = "MATCH_DATE";
 
 	public static final String TIME_ENDSALE = "TIME_ENDSALE";
 
 	public static final String HOME_TEAM = "HOME_TEAM";
 
-	public static final String AWAY_TEAM = "AWAY_TEAM";
+	public static final String GUEST_TEAM = "GUEST_TEAM";
+
+	public static final String HOME_RANK = "HOME_RANK";
+
+	public static final String GUEST_RANK = "GUEST_RANK";
 
 	public static final String FINAL_SCORE = "FINAL_SCORE";
 
 	public static final String HALF_SCORE = "HALF_SCORE";
 
-	public static final String HANDICAP = "HANDICAP";
-
 	public static final String WEEKDAY = "WEEKDAY";
-
-	public static final String MATCH_NAME = "MATCH_NAME";
 
 	public static final String STATUS = "STATUS";
 

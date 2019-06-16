@@ -1,6 +1,6 @@
-package cn.sunshine.soccer.mapper;
+package cn.sunshine.football.mapper;
 
-import cn.sunshine.soccer.entity.SoccerGame;
+import cn.sunshine.football.entity.SoccerGame;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

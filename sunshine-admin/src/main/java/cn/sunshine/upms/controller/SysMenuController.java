@@ -40,7 +40,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping(UpmsUrlConstant.SYSTEM_MENU)
-@Api(tags = "菜单前端控制器")
+@Api(tags = "菜单")
 public class SysMenuController {
 
 	@Autowired

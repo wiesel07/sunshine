@@ -16,5 +16,8 @@ public class UpmsUrlConstant implements CommonUrlConstant {
 	public final static String SYSTEM_ROLE = "/system/role";
 
 	public final static String SYSTEM_MENU = "/system/menu";
+	
+	public final static String SYSTEM_DICT = "/system/dict";
 
+	public final static String SYSTEM_DICT_ITEM = "/system/dictItem";
 }

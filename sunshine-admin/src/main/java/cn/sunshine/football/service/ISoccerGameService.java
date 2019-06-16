@@ -1,6 +1,6 @@
-package cn.sunshine.soccer.service;
+package cn.sunshine.football.service;
 
-import cn.sunshine.soccer.entity.SoccerGame;
+import cn.sunshine.football.entity.SoccerGame;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

@@ -1,8 +1,9 @@
-package cn.sunshine.soccer.controller;
+package cn.sunshine.football.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 /**
  * <p>
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-06-16
  */
 @RestController
-@RequestMapping("/soccer/game")
+@RequestMapping("/football/soccerGame")
 public class SoccerGameController {
 
 }

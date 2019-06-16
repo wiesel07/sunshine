@@ -1,8 +1,8 @@
-package cn.sunshine.soccer.service.impl;
+package cn.sunshine.football.service.impl;
 
-import cn.sunshine.soccer.entity.SoccerGame;
-import cn.sunshine.soccer.mapper.SoccerGameMapper;
-import cn.sunshine.soccer.service.ISoccerGameService;
+import cn.sunshine.football.entity.SoccerGame;
+import cn.sunshine.football.mapper.SoccerGameMapper;
+import cn.sunshine.football.service.ISoccerGameService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
