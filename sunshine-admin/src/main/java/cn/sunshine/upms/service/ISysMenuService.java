@@ -4,10 +4,13 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import cn.sunshine.common.base.entity.PageResp;
 import cn.sunshine.common.base.entity.TreeNode;
 import cn.sunshine.upms.entity.MenuTree;
 import cn.sunshine.upms.entity.SysMenu;
+import cn.sunshine.upms.entity.req.SysMenuPageReq;
 import cn.sunshine.upms.entity.req.SysMenuReq;
+import cn.sunshine.upms.entity.resp.SysMenuPageResp;
 
 /**
  * <p>
@@ -19,6 +22,18 @@ import cn.sunshine.upms.entity.req.SysMenuReq;
  */
 public interface ISysMenuService extends IService<SysMenu> {
 
+	/**
+	 * 
+	 * @Title: queryPage
+	 * @Description:分页查询
+	 * @param SysMenuPageResp
+	 * @return
+	 *
+	 * @date   创建时间：2019年6月17日
+	 * @author 作者：wuj
+	 */
+	PageResp<SysMenuPageResp> queryPage(SysMenuPageReq sysMenuPageReq);
+	
 	/**
 	 * 
 	 * @Title: doCreate  

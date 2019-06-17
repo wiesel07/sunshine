@@ -19,12 +19,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import cn.sunshine.common.api.R;
 import cn.sunshine.common.base.entity.OperParam;
 import cn.sunshine.common.base.entity.PageResp;
-import cn.sunshine.common.base.entity.TreeNode;
-import cn.sunshine.common.constant.UpmsUrlConstant;
-import ${controllerPackageName}.controller.req.${capitalEntityPageReqName};
-import ${controllerPackageName}.controller.req.${capitalEntityReqName};
-import ${controllerPackageName}.controller.resp.${capitalEntityRespName};
-import ${controllerPackageName}.controller.resp.${capitalEntityPageRespName}; 
+import cn.sunshine.common.constant.CommonUrlConstant;
+import ${packageName}.entity.req.${capitalEntityPageReqName};
+import ${packageName}.entity.req.${capitalEntityReqName};
+import ${packageName}.entity.resp.${capitalEntityRespName};
+import ${packageName}.entity.resp.${capitalEntityPageRespName}; 
 import ${packageName}.entity.${capitalEntityName};
 import ${packageName}.service.${capitalServiceName};
 import io.swagger.annotations.Api;
@@ -50,22 +49,15 @@ public class ${capitalControllerName} {
     @Autowired
 	private ${capitalServiceName} ${serviceImplName};
 
+	
 	@ApiOperation(value = "获取列表(分页)", notes = "获取列表(分页)")
 	@GetMapping(CommonUrlConstant.QUERY_PAGE)
-	public R<PageResp<${capitalEntityName}>> queryPage(@Valid ${capitalEntityPageReqName} ${entityPageReqName}) {
+	public R<PageResp<${capitalEntityPageRespName}>> queryPage(@Valid ${capitalEntityPageReqName} ${entityPageReqName}) {
 		log.info("获取列表(分页)(${entityPageReqName}={})", ${entityPageReqName});
-
-		IPage<${capitalEntityName}> page = new Page<>(${entityPageReqName}.getPageNo(), ${entityPageReqName}.getPageSize());
-
-		QueryWrapper<${capitalEntityName}> qw = new QueryWrapper<>();
-		page = ${serviceImplName}.page(page, qw);
-
-		PageResp<${capitalEntityName}> pageResp = new PageResp<>();
-		pageResp.setRows(page.getRecords());
-		pageResp.setTotal(page.getTotal());
+		
+		PageResp<${capitalEntityPageRespName}> pageResp = sysMenuService.queryPage(${entityPageReqName});
 		// 返回结果集组
-		return new R<PageResp<${capitalEntityName}>>(pageResp);
-
+		return new R<>(pageResp);
 	}
 
 	@ApiOperation(value = "新增", notes = "新增")

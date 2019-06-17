@@ -92,8 +92,8 @@ public class GenUtils {
 		String capitalControllerName = String.format(generatorProperties.getControllerName(), capitalClassName);
 		String packagePath = "";
 
-//		if (template.contains("code.sql.vm")) {
-//			packagePath = DateUtilsExt.format(new Date(), DatePattern.PURE_DATETIME_PATTERN)+"-code.sql";
+//		if (template.contains("Entity.java.vm")) {
+//			packagePath = generatorProperties.getApiPath() + File.separator +"entity"+ File.separator+ capitalEntityName + ".java";
 //			return packagePath;
 //		}
 
@@ -104,18 +104,19 @@ public class GenUtils {
 		List<String> templates = new ArrayList<String>();
 
 		templates.add("vm/common/api/entity/Entity.java.vm");
+		templates.add("vm/common/api/entity/req/EntityPageReq.java.vm");
+		templates.add("vm/common/api/entity/req/EntityReq.java.vm");
+		templates.add("vm/common/api/entity/resp/EntityResp.java.vm");
+		templates.add("vm/common/api/entity/EntityPageResp.java.vm");
 		templates.add("vm/common/api/service/Service.java.vm");
+		
 		templates.add("vm/common/spi/serviceImpl/ServiceImpl.java.vm");
-		templates.add("vm/common/spi/dao/Dao.java.vm");
-
-		templates.add("vm/common/web/Controller.java.vm");
-		templates.add("vm/common/web/req/EntityPageReq.java.vm");
-		templates.add("vm/common/web/req/EntityReq.java.vm");
-		templates.add("vm/common/web/resp/EntityResp.java.vm");
-		templates.add("vm/common/web/resp/EntityPageResp.java.vm");
+		templates.add("vm/common/spi/mapper/Mapper.java.vm");
 		templates.add("vm/common/spi/xml/Mapper.xml.vm");
+		
+		templates.add("vm/common/web/Controller.java.vm");
+		
 
-		templates.add("vm/common/sql/code.sql.vm");
 		return templates;
 	}
 

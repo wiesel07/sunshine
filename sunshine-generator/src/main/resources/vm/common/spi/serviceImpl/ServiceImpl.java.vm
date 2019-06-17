@@ -6,6 +6,10 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
 import ${packageName}.dao.${capitalMapperName};
 import ${packageName}.entity.${capitalEntityName};
+import ${packageName}.entity.req.${capitalEntityPageReqName};
+import ${packageName}.entity.req.${capitalEntityReqName};
+import ${packageName}.entity.resp.${capitalEntityRespName};
+import ${packageName}.entity.resp.${capitalEntityPageRespName}; 
 import ${packageName}.service.${capitalServiceName};
 
 
@@ -20,14 +24,26 @@ import ${packageName}.service.${capitalServiceName};
 @Service
 public class ${capitalServiceImplName} extends ServiceImpl<${capitalMapperName}, ${capitalEntityName}> implements ${capitalServiceName} {
 
+
+    @SuppressWarnings("unchecked")
 	@Override
-    public void doCreate(${capitalEntityName} ${entityReqName}){
+	public PageResp<${capitalEntityPageRespName}> queryPage(${capitalEntityPageReqName} ${entityPageReqName}) {
+		IPage<${capitalEntityName}> page = new Page<>(${entityPageReqName}.getPageNo(), ${entityPageReqName}.getPageSize());
+
+		QueryWrapper<${capitalEntityName}> qw = new QueryWrapper<>();
+	
+		page = this.baseMapper.selectPage(page, qw);
+		return Toolkit.converter.copyPage(page, ${capitalEntityPageRespName}.class);
+	}
+
+	@Override
+    public void doCreate(${capitalEntityReqName} ${entityReqName}){
     
     }
     
     
     @Override
-    public void doUpdate(${capitalEntityName} ${entityReqName}){
+    public void doUpdate(${capitalEntityReqName} ${entityReqName}){
     
     }
     

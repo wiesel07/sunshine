@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
+import cn.sunshine.common.base.entity.PageResp;
 import cn.sunshine.common.base.entity.TreeNode;
 import cn.sunshine.common.constant.CommonConstant;
 import cn.sunshine.common.enums.MenuType;
@@ -20,11 +23,14 @@ import cn.sunshine.common.util.BeanUtilExt;
 import cn.sunshine.common.util.CollectionUtilExt;
 import cn.sunshine.common.util.ObjectUtilExt;
 import cn.sunshine.common.util.StrUtilExt;
+import cn.sunshine.common.util.Toolkit;
 import cn.sunshine.common.util.TreeUtil;
 import cn.sunshine.upms.entity.MenuTree;
 import cn.sunshine.upms.entity.SysMenu;
 import cn.sunshine.upms.entity.SysRoleMenu;
+import cn.sunshine.upms.entity.req.SysMenuPageReq;
 import cn.sunshine.upms.entity.req.SysMenuReq;
+import cn.sunshine.upms.entity.resp.SysMenuPageResp;
 import cn.sunshine.upms.mapper.SysMenuMapper;
 import cn.sunshine.upms.service.ISysMenuService;
 import cn.sunshine.upms.service.ISysRoleMenuService;
@@ -47,6 +53,18 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 	@Autowired
 	private ISysRoleMenuService sysRoleMenuService;
 
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public PageResp<SysMenuPageResp> queryPage(SysMenuPageReq sysMenuPageReq) {
+		IPage<SysMenu> page = new Page<>(sysMenuPageReq.getPageNo(), sysMenuPageReq.getPageSize());
+
+		QueryWrapper<SysMenu> qw = new QueryWrapper<>();
+		qw.orderByDesc(SysMenu.MENU_CODE);
+		page = this.baseMapper.selectPage(page, qw);
+		return Toolkit.converter.copyPage(page, SysMenuPageResp.class);
+	}
+	
 	@Override
 	@Transactional
 	public void doCreate(SysMenuReq sysMenuReq) {
@@ -261,4 +279,6 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 		treeNodes = TreeUtil.buildTree(treeNodes);
 		return treeNodes;
 	}
+
+
 }

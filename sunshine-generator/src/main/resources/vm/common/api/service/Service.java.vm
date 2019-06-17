@@ -3,7 +3,10 @@ package ${packageName}.service;
 import com.baomidou.mybatisplus.service.IService;
 
 import ${packageName}.entity.${capitalEntityName};
-
+import $${packageName}.entity.req.${capitalEntityPageReqName};
+import $${packageName}.entity.req.${capitalEntityReqName};
+import $${packageName}.entity.resp.${capitalEntityRespName};
+import $${packageName}.entity.resp.${capitalEntityPageRespName}; 
  /**
  * <p>
  *  ${tableComment} 服务类
@@ -15,6 +18,18 @@ import ${packageName}.entity.${capitalEntityName};
 public interface ${capitalServiceName} extends IService<${capitalEntityName}> {
 
 
+	/**
+	 * 
+	 * @Title: queryPage
+	 * @Description:分页查询
+	 * @param ${entityPageReqName}
+	 * @return
+	 *
+	 * @date   创建时间：2019年6月17日
+	 * @author 作者：wuj
+	 */
+	PageResp<${capitalEntityPageRespName}> queryPage(${capitalEntityPageReqName} ${entityPageReqName});
+
     /**
 	 * 
 	 * @Title: doCreate  
@@ -24,7 +39,7 @@ public interface ${capitalServiceName} extends IService<${capitalEntityName}> {
 	 * @date   创建时间：${createDate}
 	 * @author 作者： ${author}
 	 */
-	void doCreate(${capitalEntityName} ${entityReqName});
+	void doCreate(${capitalEntityReqName} ${entityReqName});
 	
 	/**
 	 * 
@@ -35,7 +50,7 @@ public interface ${capitalServiceName} extends IService<${capitalEntityName}> {
 	 * @date   创建时间：${createDate}
 	 * @author 作者： ${author}
 	 */
-	void doUpdate(${capitalEntityName} ${entityReqName});
+	void doUpdate(${capitalEntityReqName} ${entityReqName});
 	
 	/**
 	 * 

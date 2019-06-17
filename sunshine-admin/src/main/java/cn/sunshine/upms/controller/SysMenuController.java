@@ -12,18 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
 import cn.sunshine.common.api.R;
 import cn.sunshine.common.base.entity.OperParam;
 import cn.sunshine.common.base.entity.PageResp;
 import cn.sunshine.common.base.entity.TreeNode;
 import cn.sunshine.common.constant.UpmsUrlConstant;
-import cn.sunshine.upms.entity.SysMenu;
 import cn.sunshine.upms.entity.req.SysMenuPageReq;
 import cn.sunshine.upms.entity.req.SysMenuReq;
+import cn.sunshine.upms.entity.resp.SysMenuPageResp;
 import cn.sunshine.upms.service.ISysMenuService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -48,21 +44,12 @@ public class SysMenuController {
 
 	@ApiOperation(value = "获取列表(分页)", notes = "获取列表(分页)")
 	@GetMapping(UpmsUrlConstant.QUERY_PAGE)
-	public R<PageResp<SysMenu>> queryPage(@Valid SysMenuPageReq sysMenuPageReq) {
+	public R<PageResp<SysMenuPageResp>> queryPage(@Valid SysMenuPageReq sysMenuPageReq) {
 		log.info("获取列表(分页)(sysMenuPageReq={})", sysMenuPageReq);
-
-		IPage<SysMenu> page = new Page<>(sysMenuPageReq.getPageNo(), sysMenuPageReq.getPageSize());
-
-		QueryWrapper<SysMenu> qw = new QueryWrapper<>();
-		qw.orderByDesc(SysMenu.MENU_CODE);
-		page = sysMenuService.page(page, qw);
-
-		PageResp<SysMenu> pageResp = new PageResp<>();
-		pageResp.setRows(page.getRecords());
-		pageResp.setTotal(page.getTotal());
+		
+		PageResp<SysMenuPageResp> pageResp = sysMenuService.queryPage(sysMenuPageReq);
 		// 返回结果集组
-		return new R<PageResp<SysMenu>>(pageResp);
-
+		return new R<>(pageResp);
 	}
 
 	@ApiOperation(value = "新增菜单", notes = "新增菜单")
@@ -97,8 +84,7 @@ public class SysMenuController {
 
 		return new R<String>();
 	}
-	
-	
+
 	@ApiOperation(value = "删除菜单", notes = "删除菜单")
 	@PostMapping(UpmsUrlConstant.REMOVE)
 	public R<String> remove(@Valid @RequestBody OperParam operParam) {
@@ -108,8 +94,7 @@ public class SysMenuController {
 
 		return new R<String>();
 	}
-	
-	
+
 	@GetMapping(UpmsUrlConstant.TREE)
 	@ApiOperation(value = "查询树型菜单列表", notes = "查询树型功能列表")
 	public R<List<TreeNode>> tree() {
@@ -124,7 +109,7 @@ public class SysMenuController {
 //		List<BfUpmsMenu> bfUpmsMenus = bfUpmsMenuService.selectList(wrapper);
 //
 //		// 树型数据组装
-	List<TreeNode> treeNodes = new ArrayList<>();
+		List<TreeNode> treeNodes = new ArrayList<>();
 //		for (BfUpmsMenu bfUpmsMenu : bfUpmsMenus) {
 //			TreeNode treeNode = new TreeNode();
 //			treeNode.setId(String.valueOf(bfUpmsMenu.getMenuId()));

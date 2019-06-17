@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
 
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import cn.sunshine.common.api.R;
 import cn.sunshine.common.base.entity.PageResp;
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -65,7 +68,7 @@ public class CommonConverter<S, T> {
      * @param t
      * @return
      */
-    public PageResp<T> copyPage(Page<S> page, Class<T> t){
+    public PageResp<T> copyPage(IPage<S> page, Class<T> t){
         PageResp<T> pageResp = new PageResp<>();
         List<T> list = null;
         if (page.getRecords()!=null && page.getRecords().size()>0){
@@ -75,8 +78,8 @@ public class CommonConverter<S, T> {
         }
         pageResp.setRows(list);
         pageResp.setTotal(page.getTotal());
-        pageResp.setCurrent(page.getCurrent());
-        pageResp.setSize(page.getSize());
+//        pageResp.setCurrent(page.getCurrent());
+//        pageResp.setSize(page.getSize());
         return pageResp;
     }
 
@@ -105,7 +108,7 @@ public class CommonConverter<S, T> {
      * @return
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
-	public R<T> copyCommonPage(Page<S> page, Class<T> t){
+	public R<T> copyCommonPage(IPage<S> page, Class<T> t){
         return new R(copyPage(page,t));
     }
 
