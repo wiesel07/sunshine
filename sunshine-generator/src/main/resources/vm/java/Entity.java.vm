@@ -1,0 +1,68 @@
+package ${packageName}.entity;
+
+import java.io.Serializable;
+#if(${hasBigDecimal})
+import java.math.BigDecimal;
+#end
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+/**
+ *
+ * @ClassName 类名：${entityName}
+ * @Description 功能说明： ${comments}
+ *              <p>
+ *              TODO
+ *              </p>
+ ***********************************************************************
+ * @date 创建日期：${datetime}
+ * @author 创建人：${author}
+ * @version 版本号：V1.0
+ *          <p>
+ ****************************修订记录************************************
+ * 
+ *          ${datetime} ${author} 创建该类功能。
+ *
+ ***********************************************************************
+ *          </p>
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@Accessors(chain = true)
+@TableName("${tableName}")
+public class ${entityName} extends Model<${entityName}> {
+
+	private static final long serialVersionUID = 1L;
+
+#foreach ($column in $columns)
+	#if($column.comments!='' )
+	
+    /**
+	 * $column.comments
+	 */
+    #end
+    #if($column.columnName == $pk.columnName)
+    @TableId(value = "$column.columnName", type = IdType.ID_WORKER)
+	#end
+	#if($column.attrType=='Date')
+		private String $column.attrname;
+	#else
+	private $column.attrType $column.attrname;
+	#end
+#end
+
+#foreach ($column in $columns)
+    public static final String $column.upperColumnName = "$column.columnName";
+#end
+
+    @Override
+	protected Serializable pkVal() {
+		// TODO Auto-generated method stub
+		return this.${pk.attrname};
+	}
+}

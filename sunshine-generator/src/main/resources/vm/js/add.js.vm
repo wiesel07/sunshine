@@ -1,0 +1,54 @@
+/**
+ * @author ${author}
+ * @date   ${datetime}
+ */
+var prefix = "#if(${moduleName}!='' )/${moduleName}#end/${classname}";
+$(function() {
+	validateRule();
+});
+
+
+$.validator.setDefaults({
+	submitHandler : function() {
+		save();
+	}
+});
+
+// 新增
+function save() {
+	app.doSave({url:prefix+'/save',data : $('#addForm').serialize(),action:ACTION.ADD});
+}
+
+
+// 校验规则
+function validateRule() {
+	var icon = "<i class='fa fa-times-circle'></i> ";
+	$("#addForm").validate({
+		rules : {
+ #foreach ($column in $columns)
+	#if($column.columnName != $pk.columnName)
+	    #if($column.isNullable =='NO')
+	      #if($column.attrType !='Date' )
+	        $column.columnName : {
+				required : true
+			}#if($foreach.hasNext),#end   
+		  #end	
+	    #end		
+	#end
+ #end	
+		},
+		messages : {
+ #foreach ($column in $columns)
+	#if($column.columnName != $pk.columnName)
+	    #if($column.isNullable =='NO')
+	      #if($column.attrType !='Date' )
+	        $column.columnName : {
+				required : icon + "请输入$column.comments"
+			}#if($foreach.hasNext),#end   
+		  #end	
+	    #end		
+	#end
+ #end	
+		}
+	});
+}

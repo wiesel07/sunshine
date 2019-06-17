@@ -1,0 +1,58 @@
+<head th:fragment="header">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link th:href="@{/lib/bootstrap/css/bootstrap.min.css?v=3.3.7}"
+		rel="stylesheet">
+	<link th:href="@{/lib/adminlte/css/font-awesome.min.css?v=4.5.0}"
+		rel="stylesheet">
+	
+	<link th:href="@{/lib/bootstrap-table/bootstrap-table.min.css}"
+		rel="stylesheet">
+	<link th:href="@{/lib/bootstrap-treetable/bootstrap-treetable.css}"
+		rel="stylesheet">
+	
+	<link th:href="@{/lib/datetimepicker/css/bootstrap-datetimepicker.min.css}"
+		rel="stylesheet">
+	
+	<link th:href="@{/lib/adminlte/css/animate.css}" rel="stylesheet">
+	
+	<link th:href="@{/css/checkbox.css}" rel="stylesheet" />
+	<link th:href="@{/css/common.css}" rel="stylesheet">
+</head>
+
+<link th:fragment="zTree_css" href="/lib/zTree/metroStyle/metroStyle.css" th:href="@{/css/plugins/zTree/metroStyle/metroStyle.css}"
+	rel="stylesheet" />
+
+
+<div th:fragment="footer">
+	<script th:src="@{/lib/jquery/jquery.min.js?v=2.2.3}"></script>
+	<script th:src="@{/lib/bootstrap/js/bootstrap.min.js?v=3.3.7}"></script>
+
+	<script
+		th:src="@{/lib/bootstrap-table/bootstrap-table.min.js?v=1.12.1}"></script>
+	<script th:src="@{/lib/bootstrap-treetable/bootstrap-treetable.js}"></script>
+
+	<script
+		th:src="@{/lib/bootstrap-table/extensions/mobile/bootstrap-table-mobile.min.js?v=1.12.1}"></script>
+	<script
+		th:src="@{/lib/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+	
+	
+	<script th:src="@{/lib/validate/jquery.validate.min.js}"></script>
+	<script th:src="@{/lib/validate/messages_zh.min.js}"></script>
+
+    <script th:src="@{/lib/datetimepicker/js/bootstrap-datetimepicker.min.js}"></script>
+
+	<script th:src="@{/lib//layer/layer.js}"></script>
+	<script th:src="@{/js/plugins/ajax-util.js}"></script>
+	<script th:src="@{/js/plugins/app-core.js}"></script>
+	<script th:src="@{/js/plugins/common.js}"></script>
+</div>
+
+<script th:fragment="zTree_js" type="text/javascript"
+		th:src="@{/lib/zTree/jquery.ztree.all.js}"></script>
