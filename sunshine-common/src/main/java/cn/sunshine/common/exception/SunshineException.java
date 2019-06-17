@@ -1,4 +1,4 @@
-package cn.sunshine.common;
+package cn.sunshine.common.exception;
 
 import cn.sunshine.common.api.IErrorCode;
 import lombok.Getter;

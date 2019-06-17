@@ -11,11 +11,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
-import cn.sunshine.common.SunshineException;
 import cn.sunshine.common.base.entity.TreeNode;
 import cn.sunshine.common.constant.CommonConstant;
 import cn.sunshine.common.enums.MenuType;
 import cn.sunshine.common.enums.UpmsErrorCode;
+import cn.sunshine.common.exception.SunshineException;
 import cn.sunshine.common.util.BeanUtilExt;
 import cn.sunshine.common.util.CollectionUtilExt;
 import cn.sunshine.common.util.ObjectUtilExt;

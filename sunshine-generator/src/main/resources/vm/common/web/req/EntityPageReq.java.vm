@@ -1,0 +1,44 @@
+package ${controllerPackageName}.controller.req;
+
+import java.math.BigDecimal;
+
+import cn.com.bosssoft.egov.asset.common.entity.PageReq;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+ /**
+ * <p>
+ *  ${tableComment} 分页请求对象
+ * </p>
+ *
+ * @author ${author}
+ * @since ${createDate}
+ */
+@Data
+@Builder
+@EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@AllArgsConstructor
+@ApiModel("${tableComment} 分页请求对象")
+public class ${capitalEntityPageReqName} extends PageReq<${capitalEntityPageReqName}>  {
+
+#foreach ($tableField in $tableFields)
+    
+    #if($tableField.propertyName==$pk.propertyName)
+	#elseif($tableField.columnName=='CREATE_TIME')
+	#elseif($tableField.columnName=='MODIFY_TIME')
+	#elseif($tableField.columnName=='DEL_FLAG')
+	#elseif($tableField.columnName=='CREATOR_ID')
+	#elseif($tableField.columnName=='CREATOR_CODE')
+    #else
+    @ApiModelProperty(value ="$tableField.comments")
+    private $tableField.propertyType $tableField.propertyName;
+	#end
+#end
+	
+}

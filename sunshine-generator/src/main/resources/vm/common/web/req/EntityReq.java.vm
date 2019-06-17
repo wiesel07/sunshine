@@ -1,0 +1,36 @@
+package ${controllerPackageName}.controller.req;
+
+import java.math.BigDecimal;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+
+ /**
+ * <p>
+ *  ${tableComment} 请求对象
+ * </p>
+ *
+ * @author ${author}
+ * @since ${createDate}
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+@ApiModel("${tableComment} 请求对象")
+public class ${capitalEntityReqName} {
+
+#foreach ($tableField in $tableFields)
+		
+    @ApiModelProperty(value ="$tableField.comments")
+    private $tableField.propertyType $tableField.propertyName;
+#end
+	
+}
