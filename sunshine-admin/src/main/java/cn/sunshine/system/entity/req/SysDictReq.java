@@ -1,22 +1,44 @@
 package cn.sunshine.system.entity.req;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+import lombok.NoArgsConstructor;
 
-/**
+
+ /**
  * <p>
- * 数据字典请求对象
+ *  数据字典 请求对象
  * </p>
  *
  * @author wuj
- * @since 2019年6月16日
+ * @since 2019-06-18
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-@ApiModel(value = "数据字典请求对象")
+@ApiModel("数据字典 请求对象")
 public class SysDictReq {
 
+		
+    @ApiModelProperty(value ="字典ID")
+    private Long dictId;
+		
+    @ApiModelProperty(value ="字典编码")
+    private String dictCode;
+		
+    @ApiModelProperty(value ="字典名称")
+    private String dictName;
+		
+    @ApiModelProperty(value ="备注")
+    private String remark;
+		
+    @ApiModelProperty(value ="逻辑删除：0 未删除 1 已删除")
+    private String delFlag;
+	
 }

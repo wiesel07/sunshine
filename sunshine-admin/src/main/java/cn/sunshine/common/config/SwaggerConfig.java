@@ -36,18 +36,18 @@ public class SwaggerConfig {
                 .contact(new Contact("wuj", "url:", "502393098@qq.com:")).version("1.0").build();
     }
 
-    @Bean
-    public Docket creatBasicRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .groupName("登录相关")
-                .enable(true)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("cn.sunshine"))
-                .paths(PathSelectors.any())
-                .build();
-    }
-    
+//    @Bean
+//    public Docket creatBasicRestApi() {
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .apiInfo(apiInfo())
+//                .groupName("登录相关")
+//                .enable(true)
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("cn.sunshine"))
+//                .paths(PathSelectors.any())
+//                .build();
+//    }
+//    
     @Bean
     public Docket creatUpmsRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -60,6 +60,17 @@ public class SwaggerConfig {
                 .build();
     }
     
+    @Bean
+    public Docket creatSystemRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .groupName("System模块")
+                .enable(true)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.sunshine.system"))
+                .paths(PathSelectors.any())
+                .build();
+    }
     
     @Bean
     public Docket creatSoccerRestApi() {
@@ -72,5 +83,7 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
     }
+    
+
 }
 

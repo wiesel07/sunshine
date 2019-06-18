@@ -44,17 +44,24 @@ public class ${capitalServiceImplName} extends ServiceImpl<${capitalMapperName},
 	@Override
     public void doCreate(${capitalEntityReqName} ${entityReqName}){
     
+       ${capitalEntityName} ${entityName} = new ${capitalEntityName}();
+		BeanUtilExt.copyProperties(${entityReqName}, ${entityName});
+		this.baseMapper.insert(${entityName});
     }
     
     
     @Override
     public void doUpdate(${capitalEntityReqName} ${entityReqName}){
     
+        ${capitalEntityName} ${entityName} = new ${capitalEntityName}();
+		BeanUtilExt.copyProperties(${entityReqName}, ${entityName});
+		this.baseMapper.updateById(${entityName});
     }
     
     
     @Override
     public void doRemove(Long id){
     
+       this.baseMapper.deleteById(id);
     }
 }

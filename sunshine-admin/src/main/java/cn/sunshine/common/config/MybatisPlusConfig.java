@@ -6,12 +6,13 @@ import java.util.List;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
+import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.core.parser.ISqlParser;
 import com.baomidou.mybatisplus.extension.MybatisMapWrapperFactory;
+import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.parsers.BlockAttackSqlParser;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
@@ -27,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @EnableTransactionManagement
 @Configuration
-@MapperScan("cn.sunshine.*.mapper*")
+@MapperScan(basePackages = { "cn.sunshine.**.mapper" })
 @Slf4j
 public class MybatisPlusConfig {
 
@@ -62,11 +63,16 @@ public class MybatisPlusConfig {
 //		return new DataSourceTransactionManager(dataSource);
 //	}
 
+//	@Bean(name = "dataSource", initMethod = "init", destroyMethod = "close")
+//	@ConfigurationProperties("spring.datasource.druid")
+//	public DataSource dataSource() {
+//		return DruidDataSourceBuilder.create().build();
+//	}
 	/**
 	 * SQL执行效率插件
 	 */
 	@Bean
-	@Profile({ "dev", "test" }) // 设置 dev test 环境开启
+//	@Profile({ "dev", "test" }) // 设置 dev test 环境开启
 	public PerformanceInterceptor performanceInterceptor() {
 		PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
 		/* <!-- SQL 执行性能分析，开发环境使用，线上不推荐。 maxTime 指的是 sql 最大执行时长 --> */
