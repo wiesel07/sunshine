@@ -95,7 +95,7 @@ public class GenUtils {
 		
 		String moduleName = generatorProperties.getModuleName(); 
 		String basePath="sunshine/sunshine-admin/src/main/java/cn/sunshine"+File.separator+moduleName;
-		String mapperXmlBasePath="sunshine/sunshine-admin/src/main/resources/cn/sunshine"+File.separator+moduleName;
+		String mapperXmlBasePath="sunshine/sunshine-admin/src/main/resources/mapper/cn/sunshine"+File.separator+moduleName;
 		if (template.contains("Entity.java.vm")) {
 			packagePath = basePath+File.separator +"entity"+ File.separator+ capitalEntityName + ".java";
 			return packagePath;

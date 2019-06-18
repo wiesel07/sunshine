@@ -1,12 +1,13 @@
 package ${packageName}.service;
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 
+import cn.sunshine.common.base.entity.PageResp;
 import ${packageName}.entity.${capitalEntityName};
-import $${packageName}.entity.req.${capitalEntityPageReqName};
-import $${packageName}.entity.req.${capitalEntityReqName};
-import $${packageName}.entity.resp.${capitalEntityRespName};
-import $${packageName}.entity.resp.${capitalEntityPageRespName}; 
+import ${packageName}.entity.req.${capitalEntityPageReqName};
+import ${packageName}.entity.req.${capitalEntityReqName};
+import ${packageName}.entity.resp.${capitalEntityRespName};
+import ${packageName}.entity.resp.${capitalEntityPageRespName}; 
  /**
  * <p>
  *  ${tableComment} 服务类

@@ -1,8 +1,8 @@
-package ${controllerPackageName}.controller.req;
+package ${packageName}.entity.req;
 
 import java.math.BigDecimal;
 
-import cn.com.bosssoft.egov.asset.common.entity.PageReq;
+import cn.sunshine.common.base.entity.PageReq;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

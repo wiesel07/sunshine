@@ -34,7 +34,7 @@
 	<select id="queryColumns" resultType="cn.sunshine.generator.entity.TableField">
 		select column_name
 		columnName, IS_NULLABLE nullable,data_type dataType, column_comment
-		columnComment, column_key 'key' from	information_schema.columns
+		comments, column_key 'key' from	information_schema.columns
 		where table_name = #{tableName} and
 		table_schema = (select database())
 		order by ordinal_position

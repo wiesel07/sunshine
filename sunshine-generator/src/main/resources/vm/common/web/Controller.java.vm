@@ -1,4 +1,4 @@
-package ${controllerPackageName}.controller;
+package ${packageName}.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import cn.sunshine.common.api.R;
 import cn.sunshine.common.base.entity.OperParam;
@@ -55,7 +51,7 @@ public class ${capitalControllerName} {
 	public R<PageResp<${capitalEntityPageRespName}>> queryPage(@Valid ${capitalEntityPageReqName} ${entityPageReqName}) {
 		log.info("获取列表(分页)(${entityPageReqName}={})", ${entityPageReqName});
 		
-		PageResp<${capitalEntityPageRespName}> pageResp = sysMenuService.queryPage(${entityPageReqName});
+		PageResp<${capitalEntityPageRespName}> pageResp = ${serviceImplName}.queryPage(${entityPageReqName});
 		// 返回结果集组
 		return new R<>(pageResp);
 	}

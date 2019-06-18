@@ -1,4 +1,4 @@
-package ${controllerPackageName}.controller.resp;
+package ${packageName}.entity.resp;
 
 import java.math.BigDecimal;
 import java.util.List;

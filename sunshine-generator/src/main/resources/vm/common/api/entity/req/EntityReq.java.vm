@@ -1,4 +1,4 @@
-package ${controllerPackageName}.controller.req;
+package ${packageName}.entity.req;
 
 import java.math.BigDecimal;
 

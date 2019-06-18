@@ -1,15 +1,20 @@
-package ${packageName}.service;
+package ${packageName}.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
-import ${packageName}.dao.${capitalMapperName};
+import cn.sunshine.common.base.entity.PageResp;
+import cn.sunshine.common.util.Toolkit;
 import ${packageName}.entity.${capitalEntityName};
 import ${packageName}.entity.req.${capitalEntityPageReqName};
 import ${packageName}.entity.req.${capitalEntityReqName};
 import ${packageName}.entity.resp.${capitalEntityRespName};
 import ${packageName}.entity.resp.${capitalEntityPageRespName}; 
+import ${packageName}.mapper.${capitalMapperName};
 import ${packageName}.service.${capitalServiceName};
 
 
@@ -28,12 +33,12 @@ public class ${capitalServiceImplName} extends ServiceImpl<${capitalMapperName},
     @SuppressWarnings("unchecked")
 	@Override
 	public PageResp<${capitalEntityPageRespName}> queryPage(${capitalEntityPageReqName} ${entityPageReqName}) {
-		IPage<${capitalEntityName}> page = new Page<>(${entityPageReqName}.getPageNo(), ${entityPageReqName}.getPageSize());
+		IPage<Dict> page = new Page<>(dictPageReq.getPageNo(), dictPageReq.getPageSize());
 
-		QueryWrapper<${capitalEntityName}> qw = new QueryWrapper<>();
+		QueryWrapper<Dict> qw = new QueryWrapper<>();
 	
 		page = this.baseMapper.selectPage(page, qw);
-		return Toolkit.converter.copyPage(page, ${capitalEntityPageRespName}.class);
+		return Toolkit.converter.copyPage(page, DictPageResp.class);
 	}
 
 	@Override

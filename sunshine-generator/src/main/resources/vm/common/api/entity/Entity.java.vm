@@ -4,12 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.math.BigDecimal;
 
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableLogic;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -37,7 +36,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper=false)
 @Accessors(chain = true)
 @TableName("${tableName}")
-@ApiModel("${comments}")
+@ApiModel("${tableComment}")
 public class  ${capitalEntityName} extends Model<${capitalEntityName}> {
 
     private static final long serialVersionUID = 1L; 
