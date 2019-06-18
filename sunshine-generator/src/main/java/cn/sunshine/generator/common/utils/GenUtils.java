@@ -1,5 +1,6 @@
 package cn.sunshine.generator.common.utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -91,11 +92,62 @@ public class GenUtils {
 		String capitalServiceImplName = String.format(generatorProperties.getServiceImplName(), capitalClassName);
 		String capitalControllerName = String.format(generatorProperties.getControllerName(), capitalClassName);
 		String packagePath = "";
+		
+		String moduleName = generatorProperties.getModuleName(); 
+		String basePath="sunshine/sunshine-admin/src/main/java/cn/sunshine"+File.separator+moduleName;
+		String mapperXmlBasePath="sunshine/sunshine-admin/src/main/resources/cn/sunshine"+File.separator+moduleName;
+		if (template.contains("Entity.java.vm")) {
+			packagePath = basePath+File.separator +"entity"+ File.separator+ capitalEntityName + ".java";
+			return packagePath;
+		}
+		
+		if (template.contains("EntityReq.java.vm")) {
+			packagePath = basePath+File.separator +"entity"+ File.separator+"req" +File.separator+capitalEntityReqName + ".java";
+			return packagePath;
+		}
+		
+		if (template.contains("EntityPageReq.java.vm")) {
+			packagePath = basePath+File.separator +"entity"+ File.separator+"req" +File.separator+capitalEntityPageReqName + ".java";
+			return packagePath;
+		}
 
-//		if (template.contains("Entity.java.vm")) {
-//			packagePath = generatorProperties.getApiPath() + File.separator +"entity"+ File.separator+ capitalEntityName + ".java";
-//			return packagePath;
-//		}
+		if (template.contains("EntityResp.java.vm")) {
+			packagePath = basePath+File.separator +"entity"+ File.separator+ "resp"+File.separator+capitalEntityRespName + ".java";
+			return packagePath;
+		}
+		
+		if (template.contains("EntityPageResp.java.vm")) {
+			packagePath = basePath+File.separator +"entity"+ File.separator+ "resp"+File.separator+capitalEntityPageRespName + ".java";
+			return packagePath;
+		}
+		
+		if (template.contains("Service.java.vm") && (!template.contains("ServiceImpl.java.vm"))) {
+			packagePath = basePath + File.separator+"service"+ File.separator
+					+ capitalServiceName + ".java";
+			return packagePath;
+		}
+		if (template.contains("ServiceImpl.java.vm")) {
+			packagePath =basePath + File.separator+"service"+File.separator+"impl"+ File.separator
+					+ capitalServiceImplName + ".java";
+			return packagePath;
+		}
+		if (template.contains("Mapper.java.vm")) {
+			packagePath = basePath + File.separator +"mapper"+ File.separator+ capitalMapperName + ".java";
+			return packagePath;
+		}
+
+		if (template.contains("Controller.java.vm")) {
+			packagePath = basePath + File.separator + "controller"+File.separator+capitalControllerName + ".java";
+			return packagePath;
+		}
+
+		
+
+		if (template.contains("Mapper.xml.vm")) {
+			packagePath = mapperXmlBasePath + File.separator + capitalXmlName + ".xml";
+			return packagePath;
+		}
+		
 
 		return null;
 	}
@@ -107,7 +159,7 @@ public class GenUtils {
 		templates.add("vm/common/api/entity/req/EntityPageReq.java.vm");
 		templates.add("vm/common/api/entity/req/EntityReq.java.vm");
 		templates.add("vm/common/api/entity/resp/EntityResp.java.vm");
-		templates.add("vm/common/api/entity/EntityPageResp.java.vm");
+		templates.add("vm/common/api/entity/resp/EntityPageResp.java.vm");
 		templates.add("vm/common/api/service/Service.java.vm");
 		
 		templates.add("vm/common/spi/serviceImpl/ServiceImpl.java.vm");
@@ -134,7 +186,6 @@ public class GenUtils {
 //			ids.add(IDUtils.newID());
 //		}
 //		result.put("ids", ids);
-		result.put("busType", generatorProperties.getBusType());
 		result.put("author", generatorProperties.getAuthor());
 		result.put("createDate", DateUtil.format(DateUtil.date(), DatePattern.NORM_DATE_PATTERN));
 		return new VelocityContext(result);

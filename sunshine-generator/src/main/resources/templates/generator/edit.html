@@ -15,21 +15,16 @@
 									type="text" th:value="${property.author}">
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label">邮箱：</label>
-							<div class="col-sm-8">
-								<input id="email" name="email" class="form-control" type="text"
-									th:value="${property.email}" readonly>
-							</div>
-						</div>
+			
+
 						<div class="form-group">
 							<label class="col-sm-3 control-label">包名：</label>
 							<div class="col-sm-8">
-								<input id="package" name="package" class="form-control"
-									type="text" th:value="${property.package}">
+								<input id="parent" name="parent" class="form-control"
+									type="text" th:value="${property.parent}">
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<label class="col-sm-3 control-label">模块名：</label>
 							<div class="col-sm-8">
@@ -37,24 +32,99 @@
 									type="text" th:value="${property.moduleName}">
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label">自动去掉表前缀：</label>
-							<div class="col-sm-2  i-checks icheckbox_square-green checked">
-								<input id="autoRemovePre" name="autoRemovePre"
-									class="form-control" type="checkbox"
-									value="true"
-									th:checked="${property.autoRemovePre}">
-							</div>
 
-						</div>
-						
 						<div class="form-group">
-							<label class="col-sm-3 control-label">去掉指定表前缀：</label>
+							<label class="col-sm-3 control-label">实体名称：</label>
 							<div class="col-sm-8">
-								<input id="tablePrefix" name="tablePrefix" class="form-control"
-									type="text" th:value="${property.tablePrefix}">
+								<input id="entityName" name="entityName" class="form-control"
+									type="text" th:value="${property.entityName}">
 							</div>
 						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">service接口名称：</label>
+							<div class="col-sm-8">
+								<input id="serviceName" name="serviceName" class="form-control"
+									type="text" th:value="${property.serviceName}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">service接口实现类名称：</label>
+							<div class="col-sm-8">
+								<input id="serviceImplName" name="serviceImplName"
+									class="form-control" type="text"
+									th:value="${property.serviceImplName}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">mapper名称：</label>
+							<div class="col-sm-8">
+								<input id="mapperName" name="mapperName" class="form-control"
+									type="text" th:value="${property.mapperName}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">mybatisPlus对应xml名称：</label>
+							<div class="col-sm-8">
+								<input id="xmlName" name="xmlName" class="form-control"
+									type="text" th:value="${property.xmlName}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">控制层名称：</label>
+							<div class="col-sm-8">
+								<input id="controllerName" name="controllerName"
+									class="form-control" type="text"
+									th:value="${property.controllerName}">
+							</div>
+						</div>
+
+						<!-- <div class="form-group">
+							<label class="col-sm-3 control-label">apiPath：</label>
+							<div class="col-sm-8">
+								<input id="apiPath" name="apiPath" class="form-control"
+									type="text" th:value="${property.apiPath}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">spiPath：</label>
+							<div class="col-sm-8">
+								<input id="spiPath" name="spiPath" class="form-control"
+									type="text" th:value="${property.spiPath}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">daoPath：</label>
+							<div class="col-sm-8">
+								<input id="mybatisPath" name="mybatisPath" class="form-control"
+									type="text" th:value="${property.mybatisPath}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">mybatisXmlPath：</label>
+							<div class="col-sm-8">
+								<input id="xmlPath" name="xmlPath" class="form-control"
+									type="text" th:value="${property.xmlPath}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label">webPath：</label>
+							<div class="col-sm-8">
+								<input id="webPath" name="webPath" class="form-control"
+									type="text" th:value="${property.webPath}">
+							</div>
+						</div> -->
+
+
+
 						<div class="form-group">
 							<div class="col-sm-8 col-sm-offset-3">
 								<button type="submit" class="btn btn-primary">提交</button>
@@ -67,6 +137,7 @@
 	</div>
 	<div th:include="include::footer"></div>
 	<script type="text/javascript" src="/js/app/generator/edit.js">
+		
 	</script>
 </body>
 </html>

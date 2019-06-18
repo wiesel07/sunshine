@@ -51,11 +51,11 @@ public class GeneratorProperties {
 	 */
 	private String tablePrefix;
 
-	private String mybatisPath;
-
-	private String xmlPath;
-
-	private String busType;
+//	private String mybatisPath;
+//
+//	private String xmlPath;
+//
+//	private String busType;
 
 	public static final String AUTHOR = "author";
 	public static final String PARENT = "parent";
