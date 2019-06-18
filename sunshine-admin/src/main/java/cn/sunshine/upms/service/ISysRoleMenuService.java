@@ -1,7 +1,8 @@
 package cn.sunshine.upms.service;
 
-import cn.sunshine.upms.entity.SysRoleMenu;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import cn.sunshine.upms.entity.SysRoleMenu;
 
 /**
  * <p>

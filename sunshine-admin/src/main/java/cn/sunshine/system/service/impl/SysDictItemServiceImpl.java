@@ -1,10 +1,12 @@
 package cn.sunshine.system.service.impl;
 
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
 import cn.sunshine.system.entity.SysDictItem;
 import cn.sunshine.system.mapper.SysDictItemMapper;
 import cn.sunshine.system.service.ISysDictItemService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -16,5 +18,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysDictItemServiceImpl extends ServiceImpl<SysDictItemMapper, SysDictItem> implements ISysDictItemService {
+
 
 }

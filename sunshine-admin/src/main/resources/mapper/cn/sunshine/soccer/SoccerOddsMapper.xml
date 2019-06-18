@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sunshine.soccer.mapper.SoccerOddsMapper">
+
+   <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+    ODDS_ID,   
+    MATCH_ID,   
+    SIZE,   
+    YAPAI,   
+    OUPEI,   
+    SIZE_HOME,   
+    SIZE_GUEST,   
+    YAPAN_HOME,   
+    YAPAN_GUEST,   
+    OP_WIN,   
+    OP_DRAW,   
+    OP_LOSE,   
+    CREATE_TIME,   
+    MODIFY_TIME   
+    </sql>
+
+</mapper>

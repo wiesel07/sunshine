@@ -1,7 +1,8 @@
 package cn.sunshine.system.service;
 
-import cn.sunshine.system.entity.SysDictItem;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import cn.sunshine.system.entity.SysDictItem;
 
 /**
  * <p>

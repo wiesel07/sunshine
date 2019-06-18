@@ -1,8 +1,9 @@
 package cn.sunshine.system.service;
 
-import cn.sunshine.system.entity.SysDict;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import cn.sunshine.system.entity.SysDict;
+     
 /**
  * <p>
  * 数据字典 服务类

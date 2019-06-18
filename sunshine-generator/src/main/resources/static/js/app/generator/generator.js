@@ -71,7 +71,7 @@ function batchCode() {
 		tables[i] = row['tableName'];
 	});
 
-    location.href = prefix + "/batchCode?tables=" + JSON.stringify(tables);
+    location.href = encodeURI(prefix + "/batchCode/"+JSON.stringify(tables));
 //	var url=  prefix + "/batchCode?tables=" + JSON.stringify(tables);
 //
 //	$.ajax({

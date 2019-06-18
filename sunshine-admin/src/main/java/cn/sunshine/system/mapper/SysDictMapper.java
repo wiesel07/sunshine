@@ -1,7 +1,8 @@
 package cn.sunshine.system.mapper;
 
-import cn.sunshine.system.entity.SysDict;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import cn.sunshine.system.entity.SysDict;
 
 /**
  * <p>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sunshine.soccer.mapper.SoccerGameMapper">
+
+   <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+    PHASE,   
+    CREATE_AT,   
+    OFFICAL_DATE,   
+    MATCH_NUM,   
+    MATCH_ID,   
+    MATCH_NAME,   
+    MATCH_DATE,   
+    TIME_ENDSALE,   
+    HOME_TEAM,   
+    GUEST_TEAM,   
+    HOME_RANK,   
+    GUEST_RANK,   
+    FINAL_SCORE,   
+    HALF_SCORE,   
+    WEEKDAY,   
+    STATUS   
+    </sql>
+
+</mapper>

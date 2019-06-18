@@ -59,5 +59,18 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
     }
+    
+    
+    @Bean
+    public Docket creatSoccerRestApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .groupName("Soccer模块")
+                .enable(true)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.sunshine.soccer"))
+                .paths(PathSelectors.any())
+                .build();
+    }
 }
 

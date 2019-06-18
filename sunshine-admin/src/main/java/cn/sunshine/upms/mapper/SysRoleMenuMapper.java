@@ -1,7 +1,8 @@
 package cn.sunshine.upms.mapper;
 
-import cn.sunshine.upms.entity.SysRoleMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import cn.sunshine.upms.entity.SysRoleMenu;
 
 /**
  * <p>

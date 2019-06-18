@@ -1,10 +1,12 @@
 package cn.sunshine.upms.service.impl;
 
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
 import cn.sunshine.upms.entity.SysUserRole;
 import cn.sunshine.upms.mapper.SysUserRoleMapper;
 import cn.sunshine.upms.service.ISysUserRoleService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
 
 /**
  * <p>

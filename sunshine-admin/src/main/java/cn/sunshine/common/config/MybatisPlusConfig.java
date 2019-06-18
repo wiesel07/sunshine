@@ -42,17 +42,18 @@ public class MybatisPlusConfig {
 	 */
 	@Bean
 	public PaginationInterceptor paginationInterceptor() {
-	    PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+		log.info("注册分页插件");
+		PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
 
+		List<ISqlParser> sqlParserList = new ArrayList<>();
+		// 攻击 SQL 阻断解析器、加入解析链
+		log.info("攻击 SQL 阻断解析器、加入解析链");
+		sqlParserList.add(new BlockAttackSqlParser());
+		paginationInterceptor.setSqlParserList(sqlParserList);
 
-	    List<ISqlParser> sqlParserList = new ArrayList<>();
-	    // 攻击 SQL 阻断解析器、加入解析链
-	    sqlParserList.add(new BlockAttackSqlParser());
-	    paginationInterceptor.setSqlParserList(sqlParserList);
-
-	    return paginationInterceptor;
+		return paginationInterceptor;
 	}
-	
+
 //	@DependsOn("dataSource")
 //	@Bean(name = "transactionManager")
 //	public DataSourceTransactionManager transactionManager(
@@ -62,7 +63,7 @@ public class MybatisPlusConfig {
 //	}
 
 	/**
-	 * 执行性能分析插件
+	 * SQL执行效率插件
 	 */
 	@Bean
 	@Profile({ "dev", "test" }) // 设置 dev test 环境开启
@@ -76,27 +77,26 @@ public class MybatisPlusConfig {
 		return performanceInterceptor;
 	}
 
-	
-    @Bean
-    public SqlExplainInterceptor sqlExplainInterceptor(){
-        SqlExplainInterceptor sqlExplainInterceptor = new SqlExplainInterceptor();
-        List<ISqlParser> sqlParserList = new ArrayList<>();
-        sqlParserList.add(new BlockAttackSqlParser());
-        sqlExplainInterceptor.setSqlParserList(sqlParserList);
-        return sqlExplainInterceptor;
-    }
-    
-    /**
+	@Bean
+	public SqlExplainInterceptor sqlExplainInterceptor() {
+		SqlExplainInterceptor sqlExplainInterceptor = new SqlExplainInterceptor();
+		List<ISqlParser> sqlParserList = new ArrayList<>();
+		sqlParserList.add(new BlockAttackSqlParser());
+		sqlExplainInterceptor.setSqlParserList(sqlParserList);
+		return sqlExplainInterceptor;
+	}
+
+	/**
 	 * 
-	 * @Title: mybatisConfigurationCustomizer  
+	 * @Title: mybatisConfigurationCustomizer
 	 * @Description:补充map驼峰转换
 	 * @return
 	 *
-	 * @date   创建时间：2019年3月29日
+	 * @date 创建时间：2019年3月29日
 	 * @author 作者：wuj
 	 */
 	@Bean
-	public ConfigurationCustomizer mybatisConfigurationCustomizer(){
+	public ConfigurationCustomizer mybatisConfigurationCustomizer() {
 		return new ConfigurationCustomizer() {
 			@Override
 			public void customize(org.apache.ibatis.session.Configuration configuration) {

@@ -64,7 +64,7 @@ public class GeneratorController {
 
 
 	@ApiOperation(value = "根据表名生成代码", notes = "根据表名生成代码")
-	@RequestMapping("/code/{tableName}")
+	@PostMapping("/code/{tableName}")
 	public void code(HttpServletRequest request, HttpServletResponse response,
 			@PathVariable("tableName") String tableName) throws IOException {
 		String[] tableNames = new String[] { tableName };
@@ -77,12 +77,13 @@ public class GeneratorController {
 		IOUtils.write(data, response.getOutputStream());
 	}
 
-	@ApiOperation(value = "根据表名数组批量生成代码", notes = "根据表名数组批量生成代码")
-	@RequestMapping("/batchCode")
-	public void batchCode(HttpServletRequest request, HttpServletResponse response, String tables) throws IOException {
-		String[] tableNames = new String[] {};
-		tableNames = JSON.parseArray(tables).toArray(tableNames);
-		byte[] data = generatorService.generatorCode(tableNames);
+	@RequestMapping("/batchCode/{tableNames}")
+	public void batchCode(HttpServletRequest request, HttpServletResponse response,
+			@PathVariable("tableNames") String tableNames) throws IOException {
+
+		String[] tableNamesArr = new String[] {};
+		tableNamesArr = JSON.parseArray(tableNames).toArray(tableNamesArr);
+		byte[] data = generatorService.generatorCode(tableNamesArr);
 		response.reset();
 		response.setHeader("Content-Disposition", "attachment; filename=\"wiesel.zip\"");
 		response.addHeader("Content-Length", "" + data.length);

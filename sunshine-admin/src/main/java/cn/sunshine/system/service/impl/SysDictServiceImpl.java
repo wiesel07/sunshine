@@ -1,10 +1,12 @@
 package cn.sunshine.system.service.impl;
 
+import org.springframework.stereotype.Service;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
 import cn.sunshine.system.entity.SysDict;
 import cn.sunshine.system.mapper.SysDictMapper;
 import cn.sunshine.system.service.ISysDictService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
 
 /**
  * <p>

@@ -1,3 +1,4 @@
+
 package cn.sunshine.generator.common.config;
 
 import org.springframework.context.annotation.Bean;

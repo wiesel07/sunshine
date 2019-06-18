@@ -1,16 +1,18 @@
-package cn.sunshine.football.mapper;
+package cn.sunshine.soccer.mapper;
 
-import cn.sunshine.football.entity.SoccerGame;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import cn.sunshine.soccer.entity.SoccerGame;
 
 /**
  * <p>
- * 足球比赛 Mapper 接口
+ *  足球比赛 Mapper 接口
  * </p>
  *
  * @author wuj
- * @since 2019-06-16
+ * @since 2019-06-18
  */
 public interface SoccerGameMapper extends BaseMapper<SoccerGame> {
 
 }
+ 
