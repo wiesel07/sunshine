@@ -24,7 +24,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class PageReq {
+public class PageReq<T> {
 
 	@ApiModelProperty(value = "当前页码", required = true)
 	@NotNull(message = "当前页码不能为空")
