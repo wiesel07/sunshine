@@ -17,6 +17,7 @@ import cn.sunshine.common.base.entity.OperParam;
 import cn.sunshine.common.base.entity.PageResp;
 import cn.sunshine.common.base.entity.TreeNode;
 import cn.sunshine.common.constant.UpmsUrlConstant;
+import cn.sunshine.upms.entity.MenuTree;
 import cn.sunshine.upms.entity.req.SysMenuPageReq;
 import cn.sunshine.upms.entity.req.SysMenuReq;
 import cn.sunshine.upms.entity.resp.SysMenuPageResp;
@@ -46,7 +47,7 @@ public class SysMenuController {
 	@GetMapping(UpmsUrlConstant.QUERY_PAGE)
 	public R<PageResp<SysMenuPageResp>> queryPage(@Valid SysMenuPageReq sysMenuPageReq) {
 		log.info("获取列表(分页)(sysMenuPageReq={})", sysMenuPageReq);
-		
+
 		PageResp<SysMenuPageResp> pageResp = sysMenuService.queryPage(sysMenuPageReq);
 		// 返回结果集组
 		return new R<>(pageResp);
@@ -97,29 +98,11 @@ public class SysMenuController {
 
 	@GetMapping(UpmsUrlConstant.TREE)
 	@ApiOperation(value = "查询树型菜单列表", notes = "查询树型功能列表")
-	public R<List<TreeNode>> tree() {
+	public R<List<MenuTree>> tree() {
 		log.info("查询树型菜单列表");
 
-//		// 获取功能列表
-//		EntityWrapper<BfUpmsMenu> wrapper = new EntityWrapper<>();
-////		wrapper.orderBy(BfUpmsMenu.RANK, true);
-////		wrapper.orderBy(BfUpmsMenu.SORT_NO, true);
-//		wrapper.orderBy(BfUpmsMenu.MENU_CODE, true);
-//		//wrapper.eq(BfUpmsMenu.STATUS, Status.ENABLE.getCode());
-//		List<BfUpmsMenu> bfUpmsMenus = bfUpmsMenuService.selectList(wrapper);
-//
-//		// 树型数据组装
-		List<TreeNode> treeNodes = new ArrayList<>();
-//		for (BfUpmsMenu bfUpmsMenu : bfUpmsMenus) {
-//			TreeNode treeNode = new TreeNode();
-//			treeNode.setId(String.valueOf(bfUpmsMenu.getMenuId()));
-//			treeNode.setCode(bfUpmsMenu.getMenuCode());
-//			treeNode.setPid(String.valueOf(bfUpmsMenu.getMenuPid()));
-//			treeNode.setText(bfUpmsMenu.getMenuName());
-//			treeNodes.add(treeNode);
-//		}
-//		treeNodes = TreeUtil.buildTree(treeNodes);
+		List<MenuTree> menuTrees = sysMenuService.getMenuTree();
 
-		return new R<List<TreeNode>>(treeNodes);
+		return new R<List<MenuTree>>(menuTrees);
 	}
 }

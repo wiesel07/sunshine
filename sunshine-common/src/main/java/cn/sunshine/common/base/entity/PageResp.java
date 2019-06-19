@@ -26,9 +26,18 @@ import lombok.experimental.Accessors;
 @ApiModel
 public class PageResp<T> {
 
-	@ApiModelProperty(value = "总数")
-	private Long total;
+	@ApiModelProperty(value = "当前页码")
+	private long current;
 
+	@ApiModelProperty(value = "页面大小")
+	private long size;
+
+	@ApiModelProperty(value = "总数")
+	private long total;
+
+//	@ApiModelProperty(value = "总页码")
+//	private Integer pages;
+	
 	@ApiModelProperty("记录")
 	private List<T> rows;
 }

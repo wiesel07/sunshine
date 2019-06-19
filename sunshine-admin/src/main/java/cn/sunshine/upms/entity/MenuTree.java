@@ -21,11 +21,11 @@ public class MenuTree extends TreeNode {
 
 	private static final long serialVersionUID = 1L;
 
-	@ApiModelProperty(value = "父菜单编码")
-	private String menuPcode;
-
-	@ApiModelProperty(value = "父菜单名称")
-	private String menuPname;
+//	@ApiModelProperty(value = "父菜单编码")
+//	private String menuPcode;
+//
+//	@ApiModelProperty(value = "父菜单名称")
+//	private String menuPname;
 
 	@ApiModelProperty(value = "菜单地址")
 	private String menuUrl;
@@ -36,14 +36,14 @@ public class MenuTree extends TreeNode {
 	@ApiModelProperty(value = "菜单类型（0 目录 1菜单 2 按钮）")
 	private String menuType;
 
-	@ApiModelProperty(value = "排序")
-	private Integer sortNo;
-
-	@ApiModelProperty(value = "状态（启用 1 停用 0）")
-	private String status;
-
-	@ApiModelProperty(value = "备注")
-	private String remark;
+//	@ApiModelProperty(value = "排序")
+//	private Integer sortNo;
+//
+//	@ApiModelProperty(value = "状态（启用 1 停用 0）")
+//	private String status;
+//
+//	@ApiModelProperty(value = "备注")
+//	private String remark;
 }
 
 

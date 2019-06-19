@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import cn.sunshine.common.api.R;
 import cn.sunshine.common.base.entity.PageResp;
-import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -78,8 +75,8 @@ public class CommonConverter<S, T> {
         }
         pageResp.setRows(list);
         pageResp.setTotal(page.getTotal());
-//        pageResp.setCurrent(page.getCurrent());
-//        pageResp.setSize(page.getSize());
+        pageResp.setCurrent(page.getCurrent());
+        pageResp.setSize(page.getSize());
         return pageResp;
     }
 

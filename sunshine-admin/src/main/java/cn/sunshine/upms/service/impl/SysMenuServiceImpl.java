@@ -73,7 +73,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 		QueryWrapper<SysMenu> qw = new QueryWrapper<>();
 		qw.eq(SysMenu.MENU_CODE, sysMenuReq.getMenuCode());
 
-		if (this.baseMapper.selectCount(qw) != 1) {
+		if (this.baseMapper.selectCount(qw) >0 ) {
 			throw new SunshineException(UpmsErrorCode.MENU_CODE_IS_EXIST);
 		}
 
