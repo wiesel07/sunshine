@@ -28,9 +28,17 @@ import lombok.NoArgsConstructor;
 public class ${capitalEntityReqName} {
 
 #foreach ($tableField in $tableFields)
-		
+	
+	#if($tableField.columnName=='CREATE_TIME')
+	#elseif($tableField.columnName=='MODIFY_TIME')
+	#elseif($tableField.columnName=='DEL_FLAG')
+	#else
     @ApiModelProperty(value ="$tableField.comments")
     private $tableField.propertyType $tableField.propertyName;
+    #end
 #end
+
+    @ApiModelProperty(value ="逻辑删除：0 未删除 1 已删除")
+    private String delFlag;
 	
 }
