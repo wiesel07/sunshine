@@ -234,7 +234,10 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 
 	@Override
 	public List<MenuTree> getMenuTree() {
-		List<SysMenu> sysMenus = this.baseMapper.selectList(Wrappers.query());
+		
+		QueryWrapper<SysMenu> qw = new 	QueryWrapper<>();
+		qw.eq(SysMenu.STATUS, "1");
+		List<SysMenu> sysMenus = this.baseMapper.selectList(qw);
 
 		List<MenuTree> menuTrees = new ArrayList<MenuTree>();
 

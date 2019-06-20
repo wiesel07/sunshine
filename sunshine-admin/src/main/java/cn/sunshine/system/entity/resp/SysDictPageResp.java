@@ -1,5 +1,8 @@
 package cn.sunshine.system.entity.resp;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -15,7 +18,7 @@ import lombok.NoArgsConstructor;
  * </p>
  *
  * @author wuj
- * @since 2019-06-18
+ * @since 2019-06-20
  */
 @Data
 @Builder
@@ -38,5 +41,8 @@ public class SysDictPageResp {
     @ApiModelProperty(value ="备注")
     private String remark;
 
+
+    @ApiModelProperty(value ="状态（启用 1  停用 0）")
+    private String status;
    
 }

@@ -1,7 +1,6 @@
 package cn.sunshine.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-
 import cn.sunshine.system.entity.SysDict;
 
 /**
@@ -10,7 +9,7 @@ import cn.sunshine.system.entity.SysDict;
  * </p>
  *
  * @author wuj
- * @since 2019-06-18
+ * @since 2019-06-20
  */
 public interface SysDictMapper extends BaseMapper<SysDict> {
 

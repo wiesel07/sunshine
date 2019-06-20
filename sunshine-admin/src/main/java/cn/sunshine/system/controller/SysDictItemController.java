@@ -52,8 +52,8 @@ public class SysDictItemController {
 	}
 
 	@ApiOperation(value = "新增", notes = "新增")
-	@PostMapping(CommonUrlConstant.CREATE)
-	public R<String> create(@Valid @RequestBody SysDictItemReq sysDictItemReq) {
+	@PostMapping(CommonUrlConstant.ADD)
+	public R<String> add(@Valid @RequestBody SysDictItemReq sysDictItemReq) {
 		log.info("新增(sysDictItemReq={})", sysDictItemReq);
 
 		sysDictItemService.doCreate(sysDictItemReq);

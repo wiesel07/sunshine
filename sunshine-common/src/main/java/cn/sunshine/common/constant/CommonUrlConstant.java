@@ -12,6 +12,8 @@ public interface CommonUrlConstant {
 
 	public final static String CREATE = "/create";
 
+	public final static String ADD = "/add";
+	
 	public final static String UPDATE = "/update";
 
 	public final static String REMOVE = "/remove";

@@ -24,7 +24,7 @@ import cn.sunshine.system.service.ISysDictService;
  * </p>
  *
  * @author wuj
- * @since 2019-06-18
+ * @since 2019-06-20
  */
 @Service
 public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> implements ISysDictService {
@@ -37,16 +37,14 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
 
 		QueryWrapper<SysDict> qw = new QueryWrapper<>();
 	
-	    page = this.baseMapper.selectPage(page, qw);
-		// page=	this.page(page, qw);
+		page = this.baseMapper.selectPage(page, qw);
 		return Toolkit.converter.copyPage(page, SysDictPageResp.class);
-		
 	}
 
 	@Override
     public void doCreate(SysDictReq sysDictReq){
     
-		SysDict sysDict = new SysDict();
+       SysDict sysDict = new SysDict();
 		BeanUtilExt.copyProperties(sysDictReq, sysDict);
 		this.baseMapper.insert(sysDict);
     }
@@ -54,8 +52,8 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
     
     @Override
     public void doUpdate(SysDictReq sysDictReq){
-    	
-    	SysDict sysDict = new SysDict();
+    
+        SysDict sysDict = new SysDict();
 		BeanUtilExt.copyProperties(sysDictReq, sysDict);
 		this.baseMapper.updateById(sysDict);
     }
@@ -64,6 +62,6 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
     @Override
     public void doRemove(Long id){
     
-    	this.baseMapper.deleteById(id);
+       this.baseMapper.deleteById(id);
     }
 }

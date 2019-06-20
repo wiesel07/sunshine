@@ -6,6 +6,7 @@ import cn.sunshine.common.base.entity.PageResp;
 import cn.sunshine.system.entity.SysDict;
 import cn.sunshine.system.entity.req.SysDictPageReq;
 import cn.sunshine.system.entity.req.SysDictReq;
+import cn.sunshine.system.entity.resp.SysDictResp;
 import cn.sunshine.system.entity.resp.SysDictPageResp; 
  /**
  * <p>
@@ -13,7 +14,7 @@ import cn.sunshine.system.entity.resp.SysDictPageResp;
  * </p>
  *
  * @author wuj
- * @since 2019-06-18
+ * @since 2019-06-20
  */
 public interface ISysDictService extends IService<SysDict> {
 
@@ -36,7 +37,7 @@ public interface ISysDictService extends IService<SysDict> {
 	 * @Description:新增
 	 * @param sysDictReq
 	 *
-	 * @date   创建时间：2019-06-18
+	 * @date   创建时间：2019-06-20
 	 * @author 作者： wuj
 	 */
 	void doCreate(SysDictReq sysDictReq);
@@ -47,7 +48,7 @@ public interface ISysDictService extends IService<SysDict> {
 	 * @Description:修改
 	 * @param sysDictReq
 	 *
-	 * @date   创建时间：2019-06-18
+	 * @date   创建时间：2019-06-20
 	 * @author 作者： wuj
 	 */
 	void doUpdate(SysDictReq sysDictReq);
@@ -58,7 +59,7 @@ public interface ISysDictService extends IService<SysDict> {
 	 * @Description:删除
 	 * @param id
 	 *
-	 * @date   创建时间：2019-06-18
+	 * @date   创建时间：2019-06-20
 	 * @author 作者： wuj
 	 */
 	void doRemove(Long id);

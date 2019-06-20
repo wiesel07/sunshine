@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
  * </p>
  *
  * @author wuj
- * @since 2019-06-18
+ * @since 2019-06-20
  */
 @Data
 @Builder
@@ -26,7 +26,8 @@ import lombok.NoArgsConstructor;
 public class SysDictPageReq extends PageReq<SysDictPageReq>  {
 
     
-	@ApiModelProperty(value ="字典编码")
+    
+    @ApiModelProperty(value ="字典编码")
     private String dictCode;
     
     @ApiModelProperty(value ="字典名称")
@@ -35,5 +36,8 @@ public class SysDictPageReq extends PageReq<SysDictPageReq>  {
     @ApiModelProperty(value ="备注")
     private String remark;
     
+    
+    @ApiModelProperty(value ="状态（启用 1  停用 0）")
+    private String status;
 	
 }

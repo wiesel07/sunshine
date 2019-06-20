@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
  * </p>
  *
  * @author wuj
- * @since 2019-06-18
+ * @since 2019-06-20
  */
 @Data
 @Builder
@@ -38,5 +38,8 @@ public class SysDictResp {
     @ApiModelProperty(value ="备注")
     private String remark;
 	
+	
+    @ApiModelProperty(value ="状态（启用 1  停用 0）")
+    private String status;
 	
 }

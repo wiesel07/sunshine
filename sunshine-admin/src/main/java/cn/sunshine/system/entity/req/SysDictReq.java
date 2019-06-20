@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
  * </p>
  *
  * @author wuj
- * @since 2019-06-18
+ * @since 2019-06-20
  */
 @Data
 @Builder
@@ -25,17 +25,21 @@ import lombok.NoArgsConstructor;
 @ApiModel("数据字典 请求对象")
 public class SysDictReq {
 
-		
+	
     @ApiModelProperty(value ="字典ID")
     private Long dictId;
-		
+	
     @ApiModelProperty(value ="字典编码")
     private String dictCode;
-		
+	
     @ApiModelProperty(value ="字典名称")
     private String dictName;
-		
+	
     @ApiModelProperty(value ="备注")
     private String remark;
-		
+	
+	
+    @ApiModelProperty(value ="状态（启用 1  停用 0）")
+    private String status;
+
 }
